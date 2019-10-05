@@ -28,9 +28,13 @@ data = response.json()
 # Set ean number
 ean = data[0]['ean']
 
-# Get hourly data
-response = request("GET", f"https://capi.obviux.dk/v1/consumption/customer/{user_uuid}/ean/{ean}/daily",
-                   headers=headers)
+# Get data
+# For more fine grained control, change "daily" to:
+# - hourly
+# - daily
+# - monthly
+# - yearly
+response = request("GET", f"https://capi.obviux.dk/v1/consumption/customer/{user_uuid}/ean/{ean}/daily", headers=headers)
 data = response.json()
 
 # Print rows
